@@ -1,0 +1,7 @@
+query  highestDailyNormalizedRange ($day: String) {
+    highestDailyNormalizedRange(day: $day) {
+        day
+        symbol
+        value
+    }
+}

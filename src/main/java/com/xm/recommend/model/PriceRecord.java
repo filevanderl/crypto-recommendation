@@ -10,7 +10,7 @@ public class PriceRecord {
     @CsvBindByName
     long timestamp;
 
-    public PriceRecord(double price, String symbol, long timestamp) {
+    public PriceRecord(String symbol, double price, long timestamp) {
         this.price = price;
         this.symbol = symbol;
         this.timestamp = timestamp;

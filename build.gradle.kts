@@ -1,5 +1,6 @@
 plugins {
     java
+    jacoco
     id("org.springframework.boot") version "3.0.5"
     id("io.spring.dependency-management") version "1.1.0"
 }
@@ -14,7 +15,6 @@ repositories {
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-graphql")
-//    implementation("com.graphql-java-kickstart:graphql-spring-boot-starter:15.0.0")
     implementation("com.opencsv:opencsv:5.7.1")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     implementation("org.springframework.boot:spring-boot-starter-web")
@@ -23,4 +23,14 @@ dependencies {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+tasks.jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = "0.9".toBigDecimal()
+            }
+        }
+    }
 }

@@ -1,26 +1,43 @@
 type Query {
+    "Returns single crypto record with min/max/newest/oldest values."
     cryptoBySymbol(symbol: String): Crypto!
+    "Returns descending list of crypto records for a full period of available price values. Sorted by highest normalized range."
     getAllSortedByNormalizedRange : [Crypto]
+    "Return the crypto with the highest normalized range for a specific day"
     highestDailyNormalizedRange(day: String) : HighestRangeCrypto!
 }
 
+" Contains information about single crypto represented by symbol. (min/max price values, newest and oldest record)"
 type Crypto {
+    "Crypto asset symbol identifies crypto asset e.g. (BTC, ETH...)"
     symbol: String
+    "Lowest price during from all price ranges"
     minPrice: Float
+    "Highest price during from all price ranges"
     maxPrice: Float
+    "Calculated normalized range by formula (max-min)/min). All Price records are considered."
     normalizedRange: Float
+    "Stores newest PriceRecord available"
     newestRecord: PriceRecord
+    "Stores oldest PriceRecord available"
     oldestRecord: PriceRecord
 }
 
+"Represents price in specific time."
 type PriceRecord {
+    "The timestamp for this price record"
     timestamp: Float
+    "Price value at given time"
     price: Float
 }
 
+"Return type which represents crypto with highest normalized range in one day"
 type HighestRangeCrypto {
+    "String representation of a specific day in 'dd.mm.yyyy' format"
     day: String
+    "Crypto symbol for highest range"
     symbol: String
+    "Value of the highest normalized daily range"
     value: Float
 }
 

@@ -20,6 +20,7 @@ public class RecommendationServiceImpl implements RecommendationService {
             .withZone(ZoneId.systemDefault());
     private final List<Crypto> cryptos = new ArrayList<>();
 
+
     public RecommendationServiceImpl(ParsingService parseService) {
         Map<String, List<PriceRecord>> priceRecordMap = parseService.parseCSVFiles("prices");
         priceRecordMap.forEach((k, v) -> {
