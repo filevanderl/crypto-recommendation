@@ -1,0 +1,16 @@
+query cryptoBySymbol($symbol: String) {
+    cryptoBySymbol(symbol: $symbol) {
+        symbol
+        minPrice
+        maxPrice
+        normalizedRange
+        newestRecord {
+            timestamp
+            price
+        }
+        oldestRecord{
+            timestamp
+            price
+        }
+    }
+}

@@ -1,0 +1,26 @@
+type Query {
+    cryptoBySymbol(symbol: String): Crypto!
+    getAllSortedByNormalizedRange : [Crypto]
+    highestDailyNormalizedRange(day: String) : HighestRangeCrypto!
+}
+
+type Crypto {
+    symbol: String
+    minPrice: Float
+    maxPrice: Float
+    normalizedRange: Float
+    newestRecord: PriceRecord
+    oldestRecord: PriceRecord
+}
+
+type PriceRecord {
+    timestamp: Float
+    price: Float
+}
+
+type HighestRangeCrypto {
+    day: String
+    symbol: String
+    value: Float
+}
+

@@ -1,0 +1,73 @@
+# crypto-recommendation application
+
+Help developers to invest their salaries in crypto by providing information about different crypto assets.
+
+## How to run the app
+
+----
+$ ./gradlew runBoot
+----
+
+OR
+
+----
+$ ./gradlew bootBuildImage
+$ docker run -p 8080:8080 crypto-recommendation:1.0.0
+----
+
+== Boot the application
+
+Start your Spring application.
+Navigate to http://localhost:8080/graphiql.
+
+== Run the query
+
+Type in the query and click the play button at the top of the window.
+There are 3 types of query crypto-recommendation supports.
+
+1. *cryptoBySymbol* - return the oldest/newest/min/max values for a requested crypto
+
+[source,graphql]
+----
+{
+  cryptoBySymbol(symbol: "BTC") {
+    symbol
+    minPrice
+    maxPrice
+    normalizedRange
+    newestRecord {
+      timestamp
+      price
+    }
+    oldestRecord{
+      timestamp
+      price
+    }
+  }
+}
+----
+
+2. *getAllSortedByNormalizedRange* - returns descending sorted list of all the cryptos, comparing the normalized range (i.e. (max-min)/min)
+
+[source,graphql]
+----
+{
+  getAllSortedByNormalizedRange{
+    symbol
+    normalizedRange
+  }
+}
+----
+
+3 . *highestDailyNormalizedRange* -return the crypto with the highest normalized range for a specific day
+
+[source,graphql]
+----
+{
+  highestDailyNormalizedRange(day: "27.01.2022"){
+    day
+    symbol
+    value
+  }
+}
+----

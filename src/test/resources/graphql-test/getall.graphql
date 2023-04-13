@@ -1,0 +1,6 @@
+query getAllSortedByNormalizedRange {
+    getAllSortedByNormalizedRange{
+        symbol
+        normalizedRange
+    }
+}
