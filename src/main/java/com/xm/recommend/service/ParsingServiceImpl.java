@@ -21,6 +21,9 @@ import java.util.stream.Stream;
 
 import static java.util.Collections.EMPTY_MAP;
 
+/**
+ * Service parsing CSV files from classpath resources.
+ */
 @Service
 public class ParsingServiceImpl implements ParsingService {
     private static final Logger log = LoggerFactory.getLogger("com.xm.recommend.service.ParsingService");

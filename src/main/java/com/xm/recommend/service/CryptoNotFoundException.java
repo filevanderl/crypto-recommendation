@@ -6,6 +6,9 @@ import graphql.language.SourceLocation;
 
 import java.util.List;
 
+/**
+ * Represents error when crypto symbol cannot be found.
+ */
 public class CryptoNotFoundException extends RuntimeException implements GraphQLError {
     public CryptoNotFoundException(String message) {
         super(message);

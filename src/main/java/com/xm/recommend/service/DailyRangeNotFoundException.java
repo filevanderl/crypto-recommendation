@@ -6,6 +6,9 @@ import graphql.language.SourceLocation;
 
 import java.util.List;
 
+/**
+ * Represents error when there are no data for a requested day.
+ */
 public class DailyRangeNotFoundException extends RuntimeException implements GraphQLError {
     public DailyRangeNotFoundException(String message) {
         super(message);

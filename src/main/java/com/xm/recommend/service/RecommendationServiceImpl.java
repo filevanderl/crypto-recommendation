@@ -13,6 +13,9 @@ import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * Stores in memory parsed model of input CSV files provided from parsingService. Model is parsed only once in the constructor.
+ */
 @Service
 public class RecommendationServiceImpl implements RecommendationService {
     private static final String PATTERN_FORMAT = "dd.MM.yyyy";
