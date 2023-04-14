@@ -10,6 +10,9 @@ import org.springframework.stereotype.Controller;
 
 import java.util.List;
 
+/**
+ * Main controller exposing all endpoint. Annotation Query mapping is binding graphql query to the logic.
+ */
 @Controller
 public class CryptoController {
 

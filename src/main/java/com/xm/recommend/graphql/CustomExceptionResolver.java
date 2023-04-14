@@ -9,6 +9,10 @@ import org.springframework.graphql.execution.DataFetcherExceptionResolverAdapter
 import org.springframework.graphql.execution.ErrorType;
 import org.springframework.stereotype.Component;
 
+/**
+ * This class is used to display single error thrown from exception.
+ * If exception is wrapped, which normally is it will be otherwise confusing for user to read error message.
+ */
 @Component
 public class CustomExceptionResolver extends DataFetcherExceptionResolverAdapter {
 

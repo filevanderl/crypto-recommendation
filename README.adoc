@@ -1,11 +1,14 @@
 = crypto-recommendation application
 
 Help developers to invest their salaries in crypto by providing information about different crypto assets.
+As an input for calculation we use custom CSV files.
+Each file represent crypto prices for individual asset.
+CSV files are bundled inside the application resource folder.
 
 == How to run the app
 
 ----
-$ ./gradlew runBoot
+$ ./gradlew bootRun
 ----
 
 OR
@@ -13,6 +16,12 @@ OR
 ----
 $ ./gradlew bootBuildImage
 $ docker run -p 8080:8080 crypto-recommendation:1.0.0
+----
+
+To execute tests run
+
+----
+ ./gradlew testCoverage
 ----
 
 == Boot the application
@@ -80,4 +89,5 @@ image::graphiql.png[]
 
 - Create alternative parsing service implementation capable of downloading files from remote folder
 - add postman/curl examples
-- improve service tests -
+- improve service tests
+- ratelimiting

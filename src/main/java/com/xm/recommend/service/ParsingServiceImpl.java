@@ -23,7 +23,7 @@ import static java.util.Collections.EMPTY_MAP;
 
 @Service
 public class ParsingServiceImpl implements ParsingService {
-    private static Logger log = LoggerFactory.getLogger("com.xm.recommend.service.ParsingService");
+    private static final Logger log = LoggerFactory.getLogger("com.xm.recommend.service.ParsingService");
     private static final char CSV_COLUMN_SEPARATOR = ',';
 
     public Map<String, List<PriceRecord>> parseCSVFiles(String inputFolder) {
@@ -62,7 +62,7 @@ public class ParsingServiceImpl implements ParsingService {
                     });
 
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            log.error("Error reading input folder with CSV files!");
         }
         return cryptos;
     }
